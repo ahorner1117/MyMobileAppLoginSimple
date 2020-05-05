@@ -19,10 +19,14 @@ import com.android.volley.RequestQueue;
 
 
 import com.android.volley.toolbox.Volley;
+import com.squareup.picasso.Picasso;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.concurrent.FutureTask;
 
 public class search extends AppCompatActivity {
@@ -78,11 +82,6 @@ public class search extends AppCompatActivity {
             }
         });
         getRequestQueue().add(stringRequest);
-
-
-
-
-
     }
 
 
@@ -102,15 +101,21 @@ public class search extends AppCompatActivity {
         //Sample here
         final TextView textViews = findViewById(R.id.textView);
         final ImageView imageView = findViewById(R.id.imageView);
+        //final WebView webView
         String name;
+        URI poster;
         try {
             System.out.println(data.getString("Title"));
             name = data.getString("Title");
             System.out.println(data.getString("Genre"));
+            //poster = data.get("Poster");
+            poster = new URI(data.getString("Poster"));
+            //imageView.setImageURI(https://m.media-amazon.com/images/M/MV5BMTYwNjAyODIyMF5BMl5BanBnXkFtZTYwNDMwMDk2._V1_SX300.jpg);
             textViews.setText(name);
             
-           // Picasso.get().load("http://i.imgur.com/DvpvklR.png%22).into(imageView));
-        } catch (JSONException e) {
+           Picasso.get().load(String.valueOf(poster)).into(imageView);
+
+        } catch (JSONException | URISyntaxException e) {
             System.out.println("ERROR DISPLAYING RESPONSE");
         }
     }

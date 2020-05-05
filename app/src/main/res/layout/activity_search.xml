@@ -32,13 +32,26 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="220dp"
-        android:layout_height="270dp"
+        android:layout_width="251dp"
+        android:layout_height="179dp"
+        android:textSize="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.239" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="222dp"
+        android:layout_height="322dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.498" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"></ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
