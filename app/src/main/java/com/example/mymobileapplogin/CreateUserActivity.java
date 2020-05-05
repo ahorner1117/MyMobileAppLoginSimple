@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 public class CreateUserActivity extends Activity {
 
+    // Declaring variables for app attributes
     ImageView imageView;
     TextView name, email;
     Button createUser;
@@ -20,11 +21,13 @@ public class CreateUserActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createuser);
 
+        // Initializing the variables for the app
         name = findViewById(R.id.textName);
         email = findViewById(R.id.textEmail);
         email = findViewById(R.id.textEmail);
         createUser = findViewById(R.id.buttonCreateUser);
 
+        // Setting the click listener to create a new user
         createUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

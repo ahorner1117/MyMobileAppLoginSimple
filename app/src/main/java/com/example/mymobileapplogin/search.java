@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.android.volley.Response;
@@ -22,6 +23,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.concurrent.FutureTask;
+
 public class search extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.mymobileapplogin";
     Button searchBtn;
@@ -29,6 +32,7 @@ public class search extends AppCompatActivity {
     RequestQueue queue;
 
     private final String api_key = "4bcd4080";
+   // private FutureTask Picasso;
 
     // API key
     //https://www.omdbapi.com/?i=tt3896198&apikey=4bcd4080
@@ -96,9 +100,16 @@ public class search extends AppCompatActivity {
     public void DisplayMovie(JSONObject data) {
         //Insert your work here
         //Sample here
+        final TextView textViews = findViewById(R.id.textView);
+        final ImageView imageView = findViewById(R.id.imageView);
+        String name;
         try {
             System.out.println(data.getString("Title"));
+            name = data.getString("Title");
             System.out.println(data.getString("Genre"));
+            textViews.setText(name);
+            
+           // Picasso.get().load("http://i.imgur.com/DvpvklR.png%22).into(imageView));
         } catch (JSONException e) {
             System.out.println("ERROR DISPLAYING RESPONSE");
         }
